@@ -11,9 +11,9 @@ services:
     build:
       context: ./mysql
         args:
-          - MYSQL_DATABASE=default_database
-          - MYSQL_USER=default_user
-          - MYSQL_PASSWORD=secret
+          - MYSQL_DATABASE=backend_demo
+          - MYSQL_USER=root
+          - MYSQL_PASSWORD=password
           - MYSQL_ROOT_PASSWORD=root
     volumes:
       - ./data/mysql/:/var/lib/mysql
@@ -22,7 +22,7 @@ services:
   mongo:
     build: ./mongo
       expose:
-        - "27017"
+      - "27017"
     volumes:
       - ./data/mongo/:/var/lib/mongodb
   # mysql:
