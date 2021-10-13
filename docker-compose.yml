@@ -9,9 +9,21 @@ services:
     - mongo
   mysql:
     image: mysql
+    environment:
+      NAME: backend_demo
+      HOST: localhost
+      
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
     ports:
     - "3306:3306"
   mongo:
     image: mongo
+    environment:
+      NAME: backend_demo
+      USERNAME: root
+      PASSWORD: password
+      HOST: localhost
     ports:
     - "27017:27017"
