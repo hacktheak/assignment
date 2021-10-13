@@ -1,17 +1,25 @@
-version: "2"
+version: "3"
+
 services:
-  app:
-    build: .
-    ports:
-    - "3000:3000"
+  nodejs:
+    image: rest-app
+    restart: on-failure
+    build:
+      context: ./app
+      dockerfile: Dockerfile
     depends_on:
-    - mysql
-    - mongo
-  mysql:
-    image: mysql
+      - db
     ports:
-    - "3306:3306"
-  mongo:
-    image: mongo
+      - "4000:4000"
+    entrypoint: ["./wait.sh"]
+
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: on-failure
     ports:
-    - "27017:27017"
+      - "33000:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
