@@ -8,21 +8,39 @@ services:
     - mysql
     - mongo
   mysql:
-    image: mysql
-    environment:
-      NAME: backend-demo
-      HOST: localhost
-      USERNAME: root
-      PASSWORD: password
-      MYSQL_ROOT_PASSWORD: root
+    build:
+      context: ./mysql
+        args:
+          - MYSQL_DATABASE=default_database
+          - MYSQL_USER=default_user
+          - MYSQL_PASSWORD=secret
+          - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
-    ports:
-    - "3306:3306"
+      - ./data/mysql/:/var/lib/mysql
+    expose:
+      - "3306"
   mongo:
-    image: mongo
-    environment:
-      NAME: backend-demo
-      HOST: localhost
-    ports:
-    - "27017:27017"
+    build: ./mongo
+      expose:
+        - "27017"
+    volumes:
+      - ./data/mongo/:/var/lib/mongodb
+  # mysql:
+  #   image: mysql
+  #   environment:
+  #     NAME: backend-demo
+  #     HOST: localhost
+  #     USERNAME: root
+  #     PASSWORD: password
+  #     MYSQL_ROOT_PASSWORD: root
+  #   volumes:
+  #     - ./db:/docker-entrypoint-initdb.d/:ro
+  #   ports:
+  #   - "3306:3306"
+  # mongo:
+  #   image: mongo
+  #   environment:
+  #     NAME: backend-demo
+  #     HOST: localhost
+  #   ports:
+  #   - "27017:27017"
