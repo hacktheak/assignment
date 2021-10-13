@@ -1,12 +1,12 @@
 {
   "database": {
     "mongo": {
-      "name": "backend-demo",
+      "name": "backend_demo",
       "host": "localhost",
       "port": 27017
     },
     "mysql" : {
-      "name": "backend-demo",
+      "name": "backend_demo",
       "username": "root",
       "password": "password",
       "options": {
