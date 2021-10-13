@@ -2,10 +2,10 @@ version: "3"
 
 services:
   nodejs:
-    image: rest-app
+    image: nodejs
     restart: on-failure
     build:
-      context: ./app
+      context: .
       dockerfile: Dockerfile
     depends_on:
       - db
