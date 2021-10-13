@@ -9,8 +9,6 @@ services:
       - mongo
   mongo:
     image: mongo
-    environment:
-
     ports:
       - "27017:27017"
     volumes:
