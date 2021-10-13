@@ -1,0 +1,17 @@
+version: "2"
+services:
+  app:
+    build: .
+    ports:
+    - "3000:3000"
+    depends_on:
+    - mysql
+    - mongo
+  mysql:
+    image: mysql
+    ports:
+    - "3306:3306"
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"

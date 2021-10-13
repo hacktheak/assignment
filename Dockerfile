@@ -1,19 +1,15 @@
-FROM node:latest 
-WORKDIR /app
-COPY ./  /app
-MAINTAINER Akshay Chandankhede
-ENV test
-CMD ["npm" , "start"]
+FROM node:9
 
-version: "2"
-services:
-  web:
-    build: .
-    ports:
-    - "3000:3000"
-    depends_on:
-    - mysql
-  mysql:
-    image: mysql
-    ports:
-    - "3306:3306"
+WORKDIR /app
+
+RUN npm install -g contentful-cli
+
+COPY package.json .
+RUN npm install
+
+COPY . .
+
+USER node
+EXPOSE 3000
+
+CMD ["node" , "index.js"]
