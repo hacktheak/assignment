@@ -10,7 +10,7 @@ services:
   mysql:
     image: mysql
     environment:
-      NAME: backend_demo
+      NAME: backend-test
       HOST: localhost
       
       MYSQL_ROOT_PASSWORD: root
@@ -21,7 +21,7 @@ services:
   mongo:
     image: mongo
     environment:
-      NAME: backend_demo
+      NAME: backend-test
       USERNAME: root
       PASSWORD: password
       HOST: localhost
