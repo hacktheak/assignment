@@ -3,10 +3,34 @@ services:
   app:
     build: .
     ports:
-    - "3000:3000"
+      - "3000:3000"
     depends_on:
-    - mysql
-    - mongo
+      - mysql
+      - mongo
+  mongo:
+    image: mongo
+    environment:
+
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/mongo/:/var/lib/mongodb
+  
+  mysql:
+    image: mysql:8.0
+    environment:
+      - MYSQL_DATABASE=backend_demo
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d/:ro
+    ports:
+      - "3306:3306"
+
+
+
+
   # mysql:
   #   build:
   #     context: ./mysql
@@ -36,18 +60,3 @@ services:
   #     - ./db:/docker-entrypoint-initdb.d/:ro
   #   ports:
   #   - "3306:3306"
-  mongo:
-    image: mongo
-    environment:
-      NAME: backend-demo
-      HOST: localhost
-    ports:
-    - "27017:27017"
-  
-  mysql_server:
-    image:mysql:8.0
-    environment:
-      - MYSQL_DATABASE=backend_demo
-      - MYSQL_USER=
-      - MYSQL_PASSWORD=
-      - MYSQL_ROOT_PASSWORD=

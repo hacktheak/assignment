@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Wed Oct 13 2021 15:04:30 GMT+0530 (India Standard Time)
+------------------------------------------------------
+
+Modified files:
+* docker-compose.yml
+* mysql/Dockerfile
+
+
+Created files:
+
+
+Deleted files:
+
+
+Renamed files:
