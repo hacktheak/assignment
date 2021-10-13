@@ -10,7 +10,7 @@ services:
   mysql:
     image: mysql
     environment:
-      NAME: backend_demo
+      NAME: backend-demo
       HOST: localhost
       USERNAME: root
       PASSWORD: password
@@ -22,7 +22,7 @@ services:
   mongo:
     image: mongo
     environment:
-      NAME: backend_demo
+      NAME: backend-demo
       HOST: localhost
     ports:
     - "27017:27017"
