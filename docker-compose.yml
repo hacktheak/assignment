@@ -10,21 +10,21 @@ services:
   mysql:
     build:
       context: ./mysql
-        args:
-          - MYSQL_DATABASE=backend_demo
-          - MYSQL_USER=root
-          - MYSQL_PASSWORD=password
-          - MYSQL_ROOT_PASSWORD=root
+      args:
+      - MYSQL_DATABASE=backend_demo
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - ./data/mysql/:/var/lib/mysql
+    - ./data/mysql/:/var/lib/mysql
     expose:
-      - "3306"
+    - "3306"
   mongo:
     build: ./mongo
-      expose:
-      - "27017"
+    expose:
+    - "27017"
     volumes:
-      - ./data/mongo/:/var/lib/mongodb
+    - ./data/mongo/:/var/lib/mongodb
   # mysql:
   #   image: mysql
   #   environment:
