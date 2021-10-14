@@ -90,16 +90,4 @@ services:
         volumes:
             - ../:/opt/app
 
-    memcached:
-        build:
-            context: ./memcached
-        expose:
-            - "11211"
-
-    redis:
-        build:
-            context: ./redis
-        expose:
-            - "6379"
-        volumes:
-            - ./data/redis:/data
+    
