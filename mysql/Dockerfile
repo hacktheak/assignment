@@ -6,7 +6,7 @@ RUN chown -R mysql:root /var/lib/mysql/
 
 ARG MYSQL_DATABASE=backend-demo
 ARG MYSQL_USER=root
-ARG MYSQL_PASSWORD=secret
+ARG MYSQL_PASSWORD=password
 ARG MYSQL_ROOT_PASSWORD=root
 
 ENV MYSQL_DATABASE=$MYSQL_DATABASE
