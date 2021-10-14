@@ -3,8 +3,6 @@
  WORKDIR /opt
  COPY ssl-options/ /etc/ssl-options
  COPY default.conf /etc/nginx/conf.d/default.conf
- RUN chmod +x nginx-letsencrypt && \
-     chmod +x certbot.sh
 
  EXPOSE 443
 
