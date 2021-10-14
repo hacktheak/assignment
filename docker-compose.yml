@@ -29,6 +29,7 @@ services:
 
     mongo:
         build: ./mongo
+        restart: always
         expose:
             - "27017"
         volumes:
