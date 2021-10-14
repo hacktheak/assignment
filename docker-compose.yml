@@ -24,21 +24,27 @@ services:
       - ./db:/docker-entrypoint-initdb.d/:ro
     ports:
       - "3306:3306"
-  nginx:
+
+  nginxproxy:
     build:
       context: ./nginx
-      args:
-        - WEB_REVERSE_PROXY_PORT=8000
-        - WEB_SSL=false
-        - SELF_SIGNED=false
-        - NO_DEFAULT=false
-    volumes:
-      - ./data/logs/nginx/:/var/log/nginx
-      - ./certbot/certs/:/var/certs
+      dockerfile: Dockerfile.lets
+    container_name: nginxproxy
+    networks:
+     - nginx_network
+    restart: always
+    expose:
+     - 80
     ports:
-      - "80:80"
       - "443:443"
-    tty: true
+      - "80:80"
+    environment:
+      DOMAIN: mySiteaddress.com
+      EMAIL: myMail@hotmail.com
+      RENEW_INTERVAL: 12h
+    volumes:
+      - ./certificates:/usr/share/nginx/certificates
+      - ./default.conf:/etc/nginx/conf.d/default.conf
   
 
 
