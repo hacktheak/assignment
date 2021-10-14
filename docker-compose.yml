@@ -28,8 +28,8 @@ services:
         build: ./mongo
         expose:
             - "27017"
-        volumes:
-            - ./data/mongo/:/var/lib/mongodb
+        # volumes:
+        #     - ./data/mongo/:/var/lib/mongodb
 
     nginx:
         build:
