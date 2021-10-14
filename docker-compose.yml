@@ -79,15 +79,5 @@ services:
           - ./certbot/letsencrypt/:/var/www/letsencrypt
           - ./certbot/certs/:/var/certs
 
-    workspace:
-        build:
-            context: ./workspace
-            args:
-                - NODE_VERSION=latest
-                - TZ=UTC
-        links:
-            - nginx
-        volumes:
-            - ../:/opt/app
-
+    
     
