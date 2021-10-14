@@ -3,7 +3,7 @@ FROM mongo:3.3
 # Add mongo user
 RUN groupadd -r mongo &&\
     useradd -r -g mongo mongo
-RUN chown -R mongo: /var/lib/mongodb
+RUN chmod -R go+w /data/
     
 USER mongo
 
