@@ -12,7 +12,7 @@ COPY . .
 USER node
 EXPOSE 3000
 
-CMD ["node" , "node_server.js"]
+CMD ["node" , "index.js"]
 # FROM node:alpine
 # WORKDIR '/app'
 # COPY package.json .
