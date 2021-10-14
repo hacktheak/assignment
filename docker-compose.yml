@@ -14,8 +14,8 @@ services:
         # entrypoint: run-nodock "node index.js"
         tty: true
         depends_on:
-                - mysql
-                - mongo
+            - mysql
+            - mongo
 
     mysql:
         build:
