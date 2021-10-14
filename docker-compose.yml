@@ -4,11 +4,11 @@ services:
 
     node:
         build: ./node
-            args:
-                - NODE_VERSION=latest
-                - PROJECT_PATH=/opt/app/
-                - NODE_ENV=production
-                - YARN=false
+            # args:
+            #     - NODE_VERSION=latest
+            #     - PROJECT_PATH=/opt/app/
+            #     - NODE_ENV=production
+            #     - YARN=false
         volumes:
             - ../:/opt/app
         entrypoint: run-nodock "node index.js"
