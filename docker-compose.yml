@@ -21,8 +21,8 @@ services:
             args:
                 - MYSQL_DATABASE=backend-demo
                 - MYSQL_USER=root
-                - MYSQL_PASSWORD=secret
-                - MYSQL_ROOT_PASSWORD=root
+                - MYSQL_PASSWORD=password
+                - MYSQL_ROOT_PASSWORD=
         volumes:
             - ./data/mysql/:/var/lib/mysql
         expose:
