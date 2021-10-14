@@ -19,7 +19,7 @@ services:
         build:
             context: ./mysql
             args:
-                - MYSQL_DATABASE=default_database
+                - MYSQL_DATABASE=
                 - MYSQL_USER=default_user
                 - MYSQL_PASSWORD=secret
                 - MYSQL_ROOT_PASSWORD=root
