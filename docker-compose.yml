@@ -35,69 +35,69 @@ services:
         volumes:
             - ./data/mongo/:/var/lib/mongodb
 
-    nginx:
-        build:
-            context: ./nginx
-            args:
-                - WEB_REVERSE_PROXY_PORT=8000
-                - WEB_SSL=false
-                - SELF_SIGNED=false
-                - NO_DEFAULT=false
-        volumes:
-            - ./data/logs/nginx/:/var/log/nginx
-            - ./certbot/certs/:/var/certs
-        ports:
-            - "80:80"
-            - "443:443"
-        tty: true
+    # nginx:
+    #     build:
+    #         context: ./nginx
+    #         args:
+    #             - WEB_REVERSE_PROXY_PORT=8000
+    #             - WEB_SSL=false
+    #             - SELF_SIGNED=false
+    #             - NO_DEFAULT=false
+    #     volumes:
+    #         - ./data/logs/nginx/:/var/log/nginx
+    #         - ./certbot/certs/:/var/certs
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"
+    #     tty: true
 
-    apache:
-        build:
-            context: ./apache
-            args:
-                - WEB_REVERSE_PROXY_PORT=8000
-                - WEB_SSL=false
-                - SELF_SIGNED=false
-                - NO_DEFAULT=false
-        volumes:
-            - ./data/logs/apache/:/usr/local/apache2/logs
-            - ./certbot/certs/:/var/certs
-        ports:
-            - "80:80"
-            - "443:443"
-        tty: true
+    # apache:
+    #     build:
+    #         context: ./apache
+    #         args:
+    #             - WEB_REVERSE_PROXY_PORT=8000
+    #             - WEB_SSL=false
+    #             - SELF_SIGNED=false
+    #             - NO_DEFAULT=false
+    #     volumes:
+    #         - ./data/logs/apache/:/usr/local/apache2/logs
+    #         - ./certbot/certs/:/var/certs
+    #     ports:
+    #         - "80:80"
+    #         - "443:443"
+    #     tty: true
 
-    certbot:
-        build:
-            context: ./certbot
-        links:
-            - apache
-            - nginx
-        volumes:
-          - ./certbot/letsencrypt/:/var/www/letsencrypt
-          - ./certbot/certs/:/var/certs
+    # certbot:
+    #     build:
+    #         context: ./certbot
+    #     links:
+    #         - apache
+    #         - nginx
+    #     volumes:
+    #       - ./certbot/letsencrypt/:/var/www/letsencrypt
+    #       - ./certbot/certs/:/var/certs
 
-    workspace:
-        build:
-            context: ./workspace
-            args:
-                - NODE_VERSION=latest
-                - TZ=UTC
-        links:
-            - nginx
-        volumes:
-            - ../:/opt/app
+    # workspace:
+    #     build:
+    #         context: ./workspace
+    #         args:
+    #             - NODE_VERSION=latest
+    #             - TZ=UTC
+    #     links:
+    #         - nginx
+    #     volumes:
+    #         - ../:/opt/app
 
-    memcached:
-        build:
-            context: ./memcached
-        expose:
-            - "11211"
+    # memcached:
+    #     build:
+    #         context: ./memcached
+    #     expose:
+    #         - "11211"
 
-    redis:
-        build:
-            context: ./redis
-        expose:
-            - "6379"
-        volumes:
-            - ./data/redis:/data
+    # redis:
+    #     build:
+    #         context: ./redis
+    #     expose:
+    #         - "6379"
+    #     volumes:
+    #         - ./data/redis:/data
