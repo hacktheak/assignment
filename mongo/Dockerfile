@@ -5,5 +5,6 @@ RUN groupadd -r mongo &&\
     useradd -r -g mongo mongo
     
 USER mongo
+CMD 
 
 CMD mongod --dbpath=/var/lib/mongodb
