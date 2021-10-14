@@ -32,13 +32,13 @@ services:
         - WEB_SSL=false
         - SELF_SIGNED=false
         - NO_DEFAULT=false
-      volumes:
-        - ./data/logs/nginx/:/var/log/nginx
-        - ./certbot/certs/:/var/certs
-      ports:
-        - "80:80"
-        - "443:443"
-      tty: true
+    volumes:
+      - ./data/logs/nginx/:/var/log/nginx
+      - ./certbot/certs/:/var/certs
+    ports:
+      - "80:80"
+      - "443:443"
+    tty: true
   
 
 
