@@ -77,17 +77,6 @@ services:
           - ./certbot/letsencrypt/:/var/www/letsencrypt
           - ./certbot/certs/:/var/certs
 
-    rabbitmq:
-        build:
-            context: ./rabbitmq
-            args:
-                - MANAGEMENT=false
-                - FEDERATION=false
-                - RABBITMQ_DEFAULT_USER=guest
-                - RABBITMQ_DEFAULT_PASS=guest
-        expose:
-            - "5672"
-
     workspace:
         build:
             context: ./workspace
