@@ -4,8 +4,8 @@ ADD my.cnf /etc/mysql/conf.d/my.cnf
 
 RUN chown -R mysql:root /var/lib/mysql/
 
-ARG MYSQL_DATABASE=backend-den
-ARG MYSQL_USER=default_user
+ARG MYSQL_DATABASE=backend-demo
+ARG MYSQL_USER=root
 ARG MYSQL_PASSWORD=secret
 ARG MYSQL_ROOT_PASSWORD=root
 
