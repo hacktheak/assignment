@@ -1,18 +1,20 @@
-FROM node:9
+# FROM node:9
 
-WORKDIR /app
+# WORKDIR /app
 
-RUN npm install -g contentful-cli
+# RUN npm install -g contentful-cli
 
-COPY package.json .
-RUN npm install
+# COPY package.json .
+# RUN npm install
 
-COPY . .
+# COPY . .
 
-USER node
-EXPOSE 3000
+# USER node
+# EXPOSE 3000
 
-CMD ["node" , "index.js"]
+# CMD ["node" , "index.js"]
+
+
 # FROM node:alpine
 # WORKDIR '/app'
 # COPY package.json .
