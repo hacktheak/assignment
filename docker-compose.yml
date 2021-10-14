@@ -11,8 +11,8 @@ services:
             #     - YARN=false
         volumes:
             - ../:/opt/app
-        entrypoint: run-nodock "node index.js"
-        tty: true
+        # entrypoint: run-nodock "node index.js"
+        # tty: true
 
     mysql:
         build:
