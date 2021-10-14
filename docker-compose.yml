@@ -19,7 +19,7 @@ services:
             context: ./mysql
             args:
                 - MYSQL_DATABASE=backend-demo
-                - MYSQL_USER=root
+                # - MYSQL_USER=root
                 - MYSQL_PASSWORD=password
                 - MYSQL_ROOT_PASSWORD=password
         volumes:
