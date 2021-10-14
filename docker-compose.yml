@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
     node:
-        build:
+        build: ./node
             args:
                 - NODE_VERSION=latest
                 - PROJECT_PATH=/opt/app/
