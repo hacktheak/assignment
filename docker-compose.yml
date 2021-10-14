@@ -34,7 +34,6 @@ services:
   nginxproxy:
     build:
       context: ./nginx
-      dockerfile: Dockerfile.lets
     container_name: nginxproxy
     networks:
      - nginx_network
