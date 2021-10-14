@@ -5,6 +5,7 @@ services:
     node:
         build:
             context: ./node
+            
             args:
                 - NODE_VERSION=latest
                 - PROJECT_PATH=/opt/app/
