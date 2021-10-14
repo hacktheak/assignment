@@ -15,7 +15,7 @@ services:
         build:
             context: ./mysql
             args:
-                - MYSQL_DATABASE=backend-demo
+                - MYSQL_DATABASE=backend_demo
                 # - MYSQL_USER=root
                 - MYSQL_PASSWORD=password
                 - MYSQL_ROOT_PASSWORD=password
