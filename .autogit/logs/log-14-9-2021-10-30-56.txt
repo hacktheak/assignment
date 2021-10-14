@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Thu Oct 14 2021 10:30:56 GMT+0530 (India Standard Time)
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-14-9-2021-10-30-45.txt
+
+
+Deleted files:
+* mongo/Dockerfile
+* mysql/Dockerfile
+* mysql/my.cnf
+
+
+Renamed files:
