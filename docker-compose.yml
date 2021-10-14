@@ -13,8 +13,9 @@ services:
             - ../:/opt/app
         # entrypoint: run-nodock "node index.js"
         tty: true
-        depends on:
-          
+        depends_on:
+            - mysql
+            -
 
     mysql:
         build:
